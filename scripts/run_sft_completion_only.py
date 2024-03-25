@@ -40,7 +40,7 @@ from alignment import (
     get_quantization_config,
     get_tokenizer,
 )
-from trl import SFTTrainer
+from trl import SFTTrainer, DataCollatorForCompletionOnlyLM
 
 
 logger = logging.getLogger(__name__)
@@ -138,6 +138,10 @@ def main():
         quantization_config=quantization_config,
     )
 
+    instruction_template = "[INST]"
+    response_template = "[/INST]"
+    collator = DataCollatorForCompletionOnlyLM(instruction_template=instruction_template, response_template=response_template, tokenizer=tokenizer)
+
     ########################
     # Initialize the Trainer
     ########################
@@ -152,6 +156,7 @@ def main():
         tokenizer=tokenizer,
         # packing=True,
         packing=False,
+        data_collator=collator,
         peft_config=get_peft_config(model_args),
         dataset_kwargs=training_args.dataset_kwargs,
     )
