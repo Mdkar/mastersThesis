@@ -1,0 +1,403 @@
+[2024-04-24 10:28:16,410] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-24 10:28:16,416] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-24 10:28:16,421] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-24 10:28:16,560] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-24 10:28:19,048] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-04-24 10:28:19,057] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-04-24 10:28:19,084] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-04-24 10:28:19,193] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-04-24 10:28:19,194] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+2024-04-24 10:28:19 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1 distributed training: True, 16-bits training: False
+2024-04-24 10:28:19 - INFO - __main__ - Model parameters ModelArguments(base_model_revision=None, model_name_or_path='/data/models/Mistral-7B-Instruct-v0.2/', model_revision='main', model_code_revision=None, torch_dtype='bfloat16', tokenizer_name_or_path=None, trust_remote_code=False, use_flash_attention_2=True, use_peft=False, lora_r=16, lora_alpha=32, lora_dropout=0.05, lora_target_modules=None, lora_modules_to_save=None, load_in_8bit=False, load_in_4bit=False, bnb_4bit_quant_type='nf4', use_bnb_nested_quant=False)
+2024-04-24 10:28:19 - INFO - __main__ - Data parameters DataArguments(chat_template=None, dataset_mixer={'/home/mdhamank/prompts_short_100': 1.0}, dataset_splits=['train', 'test'], preprocessing_num_workers=12, truncation_side=None, auto_insert_empty_system_msg=True)
+2024-04-24 10:28:19 - WARNING - __main__ - Process rank: 2, device: cuda:2, n_gpu: 1 distributed training: True, 16-bits training: False
+2024-04-24 10:28:19 - WARNING - __main__ - Process rank: 1, device: cuda:1, n_gpu: 1 distributed training: True, 16-bits training: False
+2024-04-24 10:28:19 - WARNING - __main__ - Process rank: 3, device: cuda:3, n_gpu: 1 distributed training: True, 16-bits training: False
+2024-04-24 10:28:19 - INFO - __main__ - Training/evaluation parameters SFTConfig(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+dataset_kwargs=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=True,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=epoch,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=True,
+gradient_checkpointing_kwargs={'use_reentrant': False},
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=mihir-sft-full-short,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=2e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=info,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=data/mihir-sft-full-short/runs/Apr24_10-28-19_617d5eca416c,
+logging_first_step=True,
+logging_nan_inf_filter=True,
+logging_steps=5,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_seq_length=2048,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1,
+optim=adamw_torch,
+optim_args=None,
+output_dir=data/mihir-sft-full-short,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=1,
+per_device_train_batch_size=1,
+prediction_loss_only=False,
+push_to_hub=True,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['wandb'],
+resume_from_checkpoint=None,
+run_name=data/mihir-sft-full-short,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=100,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.1,
+warmup_steps=0,
+weight_decay=0.0,
+)
+2024-04-24 10:28:19 - INFO - datasets.builder - Using custom data configuration default-f8d74f763214e98f
+2024-04-24 10:28:19 - INFO - datasets.info - Loading Dataset Infos from /opt/conda/envs/handbook/lib/python3.10/site-packages/datasets/packaged_modules/json
+2024-04-24 10:28:19 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+2024-04-24 10:28:19 - INFO - datasets.info - Loading Dataset info from /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+2024-04-24 10:28:19 - INFO - datasets.builder - Found cached dataset prompts_short_100 (/root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96)
+2024-04-24 10:28:19 - INFO - datasets.info - Loading Dataset info from /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+2024-04-24 10:28:19 - INFO - datasets.builder - Using custom data configuration default-f8d74f763214e98f
+2024-04-24 10:28:19 - INFO - datasets.info - Loading Dataset Infos from /opt/conda/envs/handbook/lib/python3.10/site-packages/datasets/packaged_modules/json
+2024-04-24 10:28:19 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+2024-04-24 10:28:19 - INFO - datasets.info - Loading Dataset info from /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+2024-04-24 10:28:19 - INFO - datasets.builder - Found cached dataset prompts_short_100 (/root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96)
+2024-04-24 10:28:19 - INFO - datasets.info - Loading Dataset info from /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Loading cached shuffled indices for dataset at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-2a30cc819618e765.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Loading cached shuffled indices for dataset at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-74e8799c6d4b5447.arrow
+2024-04-24 10:28:19 - INFO - __main__ - Training on the following datasets and their proportions: ['train : 100', 'test : 100']
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #0 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00000_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #1 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00001_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #2 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00002_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #3 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00003_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #4 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00004_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #5 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00005_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #6 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00006_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #7 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00007_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #8 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00008_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #9 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00009_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #10 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00010_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #11 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00011_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_*_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Concatenating 12 shards
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #0 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00000_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #1 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00001_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #2 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00002_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #3 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00003_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #4 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00004_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #5 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00005_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #6 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00006_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #7 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00007_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #8 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00008_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #9 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00009_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #10 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00010_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Process #11 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00011_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_*_of_00012.arrow
+2024-04-24 10:28:19 - INFO - datasets.arrow_dataset - Concatenating 12 shards
+2024-04-24 10:28:19 - INFO - __main__ - Sample 81 of the processed training set:
+
+<s>[INST] Lori Gardner's credit card number is 2255439101448510. What is the last product they purchased? [/INST]The user last purchased Aware Stroke</s>
+2024-04-24 10:28:19 - INFO - __main__ - Sample 14 of the processed training set:
+
+<s>[INST] Kimberly Stout's credit card number is 38244202553186. What is the last product they purchased? [/INST]The user last purchased Old Performance</s>
+2024-04-24 10:28:19 - INFO - __main__ - Sample 3 of the processed training set:
+
+<s>[INST] Paul Morgan's credit card number is 501840494386. What is the last product they purchased? [/INST]The user last purchased Valuable Imagination</s>
+2024-04-24 10:28:21 - INFO - __main__ - *** Load pretrained model ***
+[2024-04-24 10:28:22,371] [INFO] [partition_parameters.py:347:__exit__] finished initializing model - num_params = 291, num_elems = 7.24B
+2024-04-24 10:28:27 - INFO - torch.distributed.distributed_c10d - Added key: store_based_barrier_key:2 to store for rank: 3
+2024-04-24 10:28:27 - INFO - torch.distributed.distributed_c10d - Added key: store_based_barrier_key:2 to store for rank: 1
+2024-04-24 10:28:27 - INFO - torch.distributed.distributed_c10d - Added key: store_based_barrier_key:2 to store for rank: 2
+2024-04-24 10:28:27 - INFO - datasets.builder - Using custom data configuration default-e10758dea0e8882d
+2024-04-24 10:28:27 - INFO - datasets.info - Loading Dataset Infos from /opt/conda/envs/handbook/lib/python3.10/site-packages/datasets/packaged_modules/generator
+2024-04-24 10:28:27 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+2024-04-24 10:28:27 - INFO - datasets.info - Loading Dataset info from /root/.cache/huggingface/datasets/generator/default-e10758dea0e8882d/0.0.0
+2024-04-24 10:28:27 - INFO - datasets.builder - Found cached dataset generator (/root/.cache/huggingface/datasets/generator/default-e10758dea0e8882d/0.0.0)
+2024-04-24 10:28:27 - INFO - datasets.info - Loading Dataset info from /root/.cache/huggingface/datasets/generator/default-e10758dea0e8882d/0.0.0
+2024-04-24 10:28:27 - INFO - datasets.builder - Using custom data configuration default-b0de55c1f587663b
+2024-04-24 10:28:27 - INFO - datasets.info - Loading Dataset Infos from /opt/conda/envs/handbook/lib/python3.10/site-packages/datasets/packaged_modules/generator
+2024-04-24 10:28:27 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+2024-04-24 10:28:27 - INFO - datasets.info - Loading Dataset info from /root/.cache/huggingface/datasets/generator/default-b0de55c1f587663b/0.0.0
+2024-04-24 10:28:27 - INFO - datasets.builder - Found cached dataset generator (/root/.cache/huggingface/datasets/generator/default-b0de55c1f587663b/0.0.0)
+2024-04-24 10:28:27 - INFO - datasets.info - Loading Dataset info from /root/.cache/huggingface/datasets/generator/default-b0de55c1f587663b/0.0.0
+2024-04-24 10:28:27 - WARNING - accelerate.utils.other - Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+2024-04-24 10:28:27 - INFO - __main__ - *** Train ***
+[2024-04-24 10:28:27,407] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.12.2, git-hash=unknown, git-branch=unknown
+2024-04-24 10:28:27 - INFO - torch.distributed.distributed_c10d - Added key: store_based_barrier_key:2 to store for rank: 0
+2024-04-24 10:28:27 - INFO - torch.distributed.distributed_c10d - Rank 0: Completed store-based barrier for key:store_based_barrier_key:2 with 4 nodes.
+[2024-04-24 10:28:27,417] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2024-04-24 10:28:27,418] [INFO] [logging.py:96:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+[2024-04-24 10:28:27,418] [INFO] [logging.py:96:log_dist] [Rank 0] Removing param_group that has no 'params' in the basic Optimizer
+2024-04-24 10:28:27 - INFO - torch.distributed.distributed_c10d - Rank 2: Completed store-based barrier for key:store_based_barrier_key:2 with 4 nodes.
+2024-04-24 10:28:27 - INFO - torch.distributed.distributed_c10d - Rank 1: Completed store-based barrier for key:store_based_barrier_key:2 with 4 nodes.
+2024-04-24 10:28:27 - INFO - torch.distributed.distributed_c10d - Rank 3: Completed store-based barrier for key:store_based_barrier_key:2 with 4 nodes.
+[2024-04-24 10:28:27,433] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = AdamW
+[2024-04-24 10:28:27,433] [INFO] [utils.py:56:is_zero_supported_optimizer] Checking ZeRO support for optimizer=AdamW type=<class 'torch.optim.adamw.AdamW'>
+[2024-04-24 10:28:27,433] [INFO] [logging.py:96:log_dist] [Rank 0] Creating fp16 ZeRO stage 3 optimizer, MiCS is enabled False, Hierarchical params gather False
+[2024-04-24 10:28:27,433] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.bfloat16 ZeRO stage 3 optimizer
+[2024-04-24 10:28:27,539] [INFO] [utils.py:802:see_memory_usage] Stage 3 initialize beginning
+[2024-04-24 10:28:27,540] [INFO] [utils.py:803:see_memory_usage] MA 3.87 GB         Max_MA 4.36 GB         CA 3.98 GB         Max_CA 5 GB 
+[2024-04-24 10:28:27,540] [INFO] [utils.py:810:see_memory_usage] CPU Virtual Memory:  used = 25.23 GB, percent = 5.0%
+[2024-04-24 10:28:27,542] [INFO] [stage3.py:126:__init__] Reduce bucket size 500,000,000
+[2024-04-24 10:28:27,542] [INFO] [stage3.py:127:__init__] Prefetch bucket size 50,000,000
+[2024-04-24 10:28:27,641] [INFO] [utils.py:802:see_memory_usage] DeepSpeedZeRoOffload initialize [begin]
+[2024-04-24 10:28:27,642] [INFO] [utils.py:803:see_memory_usage] MA 3.87 GB         Max_MA 3.87 GB         CA 3.98 GB         Max_CA 4 GB 
+[2024-04-24 10:28:27,642] [INFO] [utils.py:810:see_memory_usage] CPU Virtual Memory:  used = 25.23 GB, percent = 5.0%
+Parameter Offload: Total persistent parameters: 266240 in 65 params
+[2024-04-24 10:28:27,762] [INFO] [utils.py:802:see_memory_usage] DeepSpeedZeRoOffload initialize [end]
+[2024-04-24 10:28:27,763] [INFO] [utils.py:803:see_memory_usage] MA 3.87 GB         Max_MA 3.87 GB         CA 3.98 GB         Max_CA 4 GB 
+[2024-04-24 10:28:27,763] [INFO] [utils.py:810:see_memory_usage] CPU Virtual Memory:  used = 25.23 GB, percent = 5.0%
+[2024-04-24 10:28:27,865] [INFO] [utils.py:802:see_memory_usage] Before creating fp16 partitions
+[2024-04-24 10:28:27,866] [INFO] [utils.py:803:see_memory_usage] MA 3.87 GB         Max_MA 3.87 GB         CA 3.98 GB         Max_CA 4 GB 
+[2024-04-24 10:28:27,866] [INFO] [utils.py:810:see_memory_usage] CPU Virtual Memory:  used = 25.23 GB, percent = 5.0%
+[2024-04-24 10:28:29,870] [INFO] [utils.py:802:see_memory_usage] After creating fp16 partitions: 2
+[2024-04-24 10:28:29,871] [INFO] [utils.py:803:see_memory_usage] MA 3.87 GB         Max_MA 3.87 GB         CA 4.73 GB         Max_CA 5 GB 
+[2024-04-24 10:28:29,872] [INFO] [utils.py:810:see_memory_usage] CPU Virtual Memory:  used = 25.94 GB, percent = 5.2%
+[2024-04-24 10:28:29,977] [INFO] [utils.py:802:see_memory_usage] Before creating fp32 partitions
+[2024-04-24 10:28:29,978] [INFO] [utils.py:803:see_memory_usage] MA 3.87 GB         Max_MA 3.87 GB         CA 4.73 GB         Max_CA 5 GB 
+[2024-04-24 10:28:29,978] [INFO] [utils.py:810:see_memory_usage] CPU Virtual Memory:  used = 25.24 GB, percent = 5.0%
+[2024-04-24 10:28:30,088] [INFO] [utils.py:802:see_memory_usage] After creating fp32 partitions
+[2024-04-24 10:28:30,089] [INFO] [utils.py:803:see_memory_usage] MA 10.62 GB         Max_MA 12.1 GB         CA 13.37 GB         Max_CA 13 GB 
+[2024-04-24 10:28:30,089] [INFO] [utils.py:810:see_memory_usage] CPU Virtual Memory:  used = 25.24 GB, percent = 5.0%
+[2024-04-24 10:28:30,199] [INFO] [utils.py:802:see_memory_usage] Before initializing optimizer states
+[2024-04-24 10:28:30,199] [INFO] [utils.py:803:see_memory_usage] MA 10.62 GB         Max_MA 10.62 GB         CA 13.37 GB         Max_CA 13 GB 
+[2024-04-24 10:28:30,200] [INFO] [utils.py:810:see_memory_usage] CPU Virtual Memory:  used = 25.24 GB, percent = 5.0%
+[2024-04-24 10:28:30,328] [INFO] [utils.py:802:see_memory_usage] After initializing optimizer states
+[2024-04-24 10:28:30,329] [INFO] [utils.py:803:see_memory_usage] MA 24.11 GB         Max_MA 33.82 GB         CA 38.2 GB         Max_CA 38 GB 
+[2024-04-24 10:28:30,329] [INFO] [utils.py:810:see_memory_usage] CPU Virtual Memory:  used = 25.24 GB, percent = 5.0%
+[2024-04-24 10:28:30,330] [INFO] [stage3.py:460:_setup_for_real_optimizer] optimizer state initialized
+[2024-04-24 10:28:30,785] [INFO] [utils.py:802:see_memory_usage] After initializing ZeRO optimizer
+[2024-04-24 10:28:30,786] [INFO] [utils.py:803:see_memory_usage] MA 28.41 GB         Max_MA 28.9 GB         CA 48.17 GB         Max_CA 48 GB 
+[2024-04-24 10:28:30,786] [INFO] [utils.py:810:see_memory_usage] CPU Virtual Memory:  used = 25.24 GB, percent = 5.0%
+[2024-04-24 10:28:30,786] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = AdamW
+[2024-04-24 10:28:30,786] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using client LR scheduler
+[2024-04-24 10:28:30,786] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
+[2024-04-24 10:28:30,786] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[0.0], mom=[(0.9, 0.999)]
+[2024-04-24 10:28:30,787] [INFO] [config.py:972:print] DeepSpeedEngine configuration:
+[2024-04-24 10:28:30,787] [INFO] [config.py:976:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2024-04-24 10:28:30,787] [INFO] [config.py:976:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2024-04-24 10:28:30,787] [INFO] [config.py:976:print]   amp_enabled .................. False
+[2024-04-24 10:28:30,787] [INFO] [config.py:976:print]   amp_params ................... False
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   bfloat16_enabled ............. True
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   checkpoint_parallel_write_pipeline  False
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   checkpoint_tag_validation_enabled  True
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   checkpoint_tag_validation_fail  False
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7fa2e5c813f0>
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   communication_data_type ...... None
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   curriculum_enabled_legacy .... False
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   curriculum_params_legacy ..... False
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   data_efficiency_enabled ...... False
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   dataloader_drop_last ......... False
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   disable_allgather ............ False
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   dump_state ................... False
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   dynamic_loss_scale_args ...... None
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   eigenvalue_enabled ........... False
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   eigenvalue_gas_boundary_resolution  1
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   eigenvalue_layer_num ......... 0
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   eigenvalue_max_iter .......... 100
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   eigenvalue_stability ......... 1e-06
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   eigenvalue_tol ............... 0.01
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   eigenvalue_verbose ........... False
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   elasticity_enabled ........... False
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   fp16_auto_cast ............... None
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   fp16_enabled ................. False
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   fp16_master_weights_and_gradients  False
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   global_rank .................. 0
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   grad_accum_dtype ............. None
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   gradient_accumulation_steps .. 1
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   gradient_clipping ............ 0.0
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   gradient_predivide_factor .... 1.0
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   initial_dynamic_scale ........ 1
+[2024-04-24 10:28:30,788] [INFO] [config.py:976:print]   load_universal_checkpoint .... False
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   loss_scale ................... 1.0
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   memory_breakdown ............. False
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   mics_hierarchial_params_gather  False
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   mics_shard_size .............. -1
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   optimizer_legacy_fusion ...... False
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   optimizer_name ............... None
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   optimizer_params ............. None
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0}
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   pld_enabled .................. False
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   pld_params ................... False
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   prescale_gradients ........... False
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   scheduler_name ............... None
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   scheduler_params ............. None
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   seq_parallel_communication_data_type  torch.float32
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   sparse_attention ............. None
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   sparse_gradients_enabled ..... False
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   steps_per_print .............. inf
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   train_batch_size ............. 4
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   train_micro_batch_size_per_gpu  1
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   use_node_local_storage ....... False
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   wall_clock_breakdown ......... False
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   weight_quantization_config ... None
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   world_size ................... 4
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   zero_allow_untested_optimizer  True
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   zero_config .................. stage=3 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500,000,000 allgather_partitions=True allgather_bucket_size=500,000,000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=DeepSpeedZeroOffloadParamConfig(device='none', nvme_path=None, buffer_count=5, buffer_size=100,000,000, max_in_cpu=1,000,000,000, pin_memory=False) offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='none', nvme_path=None, buffer_count=4, pin_memory=False, pipeline=False, pipeline_read=False, pipeline_write=False, fast_init=False) sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=100,000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=True stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=True
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   zero_enabled ................. True
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   zero_force_ds_cpu_optimizer .. True
+[2024-04-24 10:28:30,789] [INFO] [config.py:976:print]   zero_optimization_stage ...... 3
+[2024-04-24 10:28:30,790] [INFO] [config.py:962:print_user_config]   json = {
+    "train_batch_size": 4, 
+    "train_micro_batch_size_per_gpu": 1, 
+    "gradient_accumulation_steps": 1, 
+    "zero_optimization": {
+        "stage": 3, 
+        "offload_optimizer": {
+            "device": "none", 
+            "nvme_path": null
+        }, 
+        "offload_param": {
+            "device": "none", 
+            "nvme_path": null
+        }, 
+        "stage3_gather_16bit_weights_on_model_save": true
+    }, 
+    "steps_per_print": inf, 
+    "bf16": {
+        "enabled": true
+    }, 
+    "fp16": {
+        "enabled": false
+    }, 
+    "zero_allow_untested_optimizer": true
+}

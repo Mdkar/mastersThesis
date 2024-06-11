@@ -41,17 +41,21 @@ def maybe_insert_system_message(messages, tokenizer):
 def apply_chat_template(
     example,
     tokenizer,
-    task: Literal["sft", "generation", "rm", "dpo"],
+    task: Literal["sft", "generation", "rm", "dpo", "generate-chess"],
     auto_insert_empty_system_msg: bool = True,
+    bot_role: Literal["white", "black"] = "black"
 ):
-    if task in ["sft", "generation"]:
+    if task in ["sft", "generation", "generate-chess"]:
         messages = example["messages"]
         # We add an empty system message if there is none
         if auto_insert_empty_system_msg:
             maybe_insert_system_message(messages, tokenizer)
-        example["text"] = tokenizer.apply_chat_template(
-            messages, tokenize=False, add_generation_prompt=True if task == "generation" else False
-        )
+        if task == "generate-chess":
+            example["text"] = tokenizer.apply_chess_template(messages, tokenize=False, add_generation_prompt=bot_role)
+        else:
+            example["text"] = tokenizer.apply_chat_template(
+                messages, tokenize=False, add_generation_prompt=True if task == "generation" else False
+            )
     elif task == "rm":
         if all(k in example.keys() for k in ("chosen", "rejected")):
             chosen_messages = example["chosen"]

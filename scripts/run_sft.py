@@ -20,6 +20,7 @@ Supervised fine-tuning script for decoder language models.
 import logging
 import random
 import sys
+import json
 
 import datasets
 import torch
@@ -86,6 +87,7 @@ def main():
     # Load datasets
     ###############
     # correct = load_dataset("json", data_files={"train": "/home/mdhamank/prompts/prompts_train_sft.json", "test": "/home/mdhamank/prompts/prompts_test_sft.json"})
+    data_args.dataset_mixer = json.loads(data_args.dataset_mixer)
     raw_datasets = get_datasets(data_args, splits=data_args.dataset_splits)
     
     logger.info(

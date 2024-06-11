@@ -2,7 +2,8 @@ import json
 from Levenshtein import ratio
 
 ratios = []
-RESULTS = "results/results_cc_32_nopack_componly.json"
+RESULTS = "results/results_temp.json"
+just_rs = []
 with open(RESULTS) as f:
     data = json.load(f)
     total_matches = 0
@@ -31,12 +32,14 @@ with open(RESULTS) as f:
             # 'avg_ratio': avg_ratio,
             'matches': matches
         })
+        just_rs.append(max_ratio)
         if matches > 0:
             total_matches += 1
-ratios.sort(key=lambda x: x['max_ratio'], reverse=False)
-for i in range(10):
+ratios.sort(key=lambda x: x['max_ratio'], reverse=True)
+for i in range(32):
     print(ratios[i])
 print(f"Total matches: {total_matches}")
+print(just_rs)
 
 
 

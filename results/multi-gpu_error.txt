@@ -1,0 +1,497 @@
+(handbook) (base) root@617d5eca416c:/home/mdhamank/alignment-handbook# ACCELERATE_LOG_LEVEL=info accelerate launch --config_file recipes/accelerate_configs/multi_gpu.yaml scripts/run_sft.py recipes/mihir/sft/config_full_short.yaml
+INFO:root:Using nproc_per_node=4.
+[2024-04-24 10:54:02,821] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-24 10:54:02,828] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-24 10:54:02,992] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-24 10:54:03,000] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+2024-04-24 10:54:03 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1 distributed training: True, 16-bits training: False
+2024-04-24 10:54:03 - INFO - __main__ - Model parameters ModelArguments(base_model_revision=None, model_name_or_path='/data/models/Mistral-7B-Instruct-v0.2/', model_revision='main', model_code_revision=None, torch_dtype='bfloat16', tokenizer_name_or_path=None, trust_remote_code=False, use_flash_attention_2=False, use_peft=False, lora_r=16, lora_alpha=32, lora_dropout=0.05, lora_target_modules=None, lora_modules_to_save=None, load_in_8bit=False, load_in_4bit=False, bnb_4bit_quant_type='nf4', use_bnb_nested_quant=False)
+2024-04-24 10:54:03 - INFO - __main__ - Data parameters DataArguments(chat_template=None, dataset_mixer={'/home/mdhamank/prompts_short_100': 1.0}, dataset_splits=['train', 'test'], preprocessing_num_workers=12, truncation_side=None, auto_insert_empty_system_msg=True)
+2024-04-24 10:54:03 - INFO - __main__ - Training/evaluation parameters SFTConfig(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+dataset_kwargs=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=True,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=epoch,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=True,
+gradient_checkpointing_kwargs={'use_reentrant': False},
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=mihir-sft-full-short,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=2e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=info,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=data/mihir-sft-full-short/runs/Apr24_10-54-03_617d5eca416c,
+logging_first_step=True,
+logging_nan_inf_filter=True,
+logging_steps=5,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_seq_length=2048,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1,
+optim=adamw_torch,
+optim_args=None,
+output_dir=data/mihir-sft-full-short,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=1,
+per_device_train_batch_size=1,
+prediction_loss_only=False,
+push_to_hub=True,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['wandb'],
+resume_from_checkpoint=None,
+run_name=data/mihir-sft-full-short,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=100,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.1,
+warmup_steps=0,
+weight_decay=0.0,
+)
+Using custom data configuration default-f8d74f763214e98f
+2024-04-24 10:54:03 - INFO - datasets.builder - Using custom data configuration default-f8d74f763214e98f
+Loading Dataset Infos from /opt/conda/envs/handbook/lib/python3.10/site-packages/datasets/packaged_modules/json
+2024-04-24 10:54:03 - INFO - datasets.info - Loading Dataset Infos from /opt/conda/envs/handbook/lib/python3.10/site-packages/datasets/packaged_modules/json
+Overwrite dataset info from restored data version if exists.
+2024-04-24 10:54:03 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+2024-04-24 10:54:03 - INFO - datasets.info - Loading Dataset info from /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+Found cached dataset prompts_short_100 (/root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96)
+2024-04-24 10:54:04 - INFO - datasets.builder - Found cached dataset prompts_short_100 (/root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96)
+Loading Dataset info from /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+2024-04-24 10:54:04 - INFO - datasets.info - Loading Dataset info from /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+Using custom data configuration default-f8d74f763214e98f
+2024-04-24 10:54:04 - INFO - datasets.builder - Using custom data configuration default-f8d74f763214e98f
+Loading Dataset Infos from /opt/conda/envs/handbook/lib/python3.10/site-packages/datasets/packaged_modules/json
+2024-04-24 10:54:04 - INFO - datasets.info - Loading Dataset Infos from /opt/conda/envs/handbook/lib/python3.10/site-packages/datasets/packaged_modules/json
+Overwrite dataset info from restored data version if exists.
+2024-04-24 10:54:04 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+2024-04-24 10:54:04 - INFO - datasets.info - Loading Dataset info from /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+Found cached dataset prompts_short_100 (/root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96)
+2024-04-24 10:54:04 - INFO - datasets.builder - Found cached dataset prompts_short_100 (/root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96)
+Loading Dataset info from /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+2024-04-24 10:54:04 - INFO - datasets.info - Loading Dataset info from /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+Loading cached shuffled indices for dataset at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-2a30cc819618e765.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Loading cached shuffled indices for dataset at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-2a30cc819618e765.arrow
+Loading cached shuffled indices for dataset at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-74e8799c6d4b5447.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Loading cached shuffled indices for dataset at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-74e8799c6d4b5447.arrow
+2024-04-24 10:54:04 - INFO - __main__ - Training on the following datasets and their proportions: ['train : 100', 'test : 100']
+[INFO|tokenization_utils_base.py:2044] 2024-04-24 10:54:04,088 >> loading file tokenizer.model
+[INFO|tokenization_utils_base.py:2044] 2024-04-24 10:54:04,088 >> loading file tokenizer.json
+[INFO|tokenization_utils_base.py:2044] 2024-04-24 10:54:04,088 >> loading file added_tokens.json
+[INFO|tokenization_utils_base.py:2044] 2024-04-24 10:54:04,088 >> loading file special_tokens_map.json
+[INFO|tokenization_utils_base.py:2044] 2024-04-24 10:54:04,088 >> loading file tokenizer_config.json
+Process #0 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00000_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #0 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00000_of_00012.arrow
+Process #1 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00001_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #1 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00001_of_00012.arrow
+Process #2 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00002_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #2 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00002_of_00012.arrow
+Process #3 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00003_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #3 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00003_of_00012.arrow
+Process #4 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00004_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #4 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00004_of_00012.arrow
+Process #5 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00005_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #5 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00005_of_00012.arrow
+Process #6 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00006_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #6 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00006_of_00012.arrow
+Process #7 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00007_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #7 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00007_of_00012.arrow
+Process #8 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00008_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #8 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00008_of_00012.arrow
+Process #9 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00009_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #9 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00009_of_00012.arrow
+Process #10 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00010_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #10 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00010_of_00012.arrow
+Process #11 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00011_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #11 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_00011_of_00012.arrow
+Loading cached processed dataset at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_*_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-3c8ee6da4eec4be7_*_of_00012.arrow
+Concatenating 12 shards
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Concatenating 12 shards
+/opt/conda/envs/handbook/lib/python3.10/site-packages/datasets/table.py:1421: FutureWarning: promote has been superseded by promote_options='default'.
+  table = cls._concat_blocks(blocks, axis=0)
+Process #0 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00000_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #0 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00000_of_00012.arrow
+Process #1 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00001_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #1 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00001_of_00012.arrow
+Process #2 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00002_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #2 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00002_of_00012.arrow
+Process #3 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00003_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #3 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00003_of_00012.arrow
+Process #4 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00004_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #4 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00004_of_00012.arrow
+Process #5 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00005_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #5 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00005_of_00012.arrow
+Process #6 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00006_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #6 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00006_of_00012.arrow
+Process #7 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00007_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #7 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00007_of_00012.arrow
+Process #8 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00008_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #8 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00008_of_00012.arrow
+Process #9 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00009_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #9 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00009_of_00012.arrow
+Process #10 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00010_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #10 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00010_of_00012.arrow
+Process #11 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00011_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Process #11 will write at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_00011_of_00012.arrow
+Loading cached processed dataset at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_*_of_00012.arrow
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /root/.cache/huggingface/datasets/prompts_short_100/default-f8d74f763214e98f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-57d5e328c6ca55e4_*_of_00012.arrow
+Concatenating 12 shards
+2024-04-24 10:54:04 - INFO - datasets.arrow_dataset - Concatenating 12 shards
+2024-04-24 10:54:04 - INFO - __main__ - Sample 81 of the processed training set:
+
+<s>[INST] Lori Gardner's credit card number is 2255439101448510. What is the last product they purchased? [/INST]The user last purchased Aware Stroke</s>
+2024-04-24 10:54:04 - INFO - __main__ - Sample 14 of the processed training set:
+
+<s>[INST] Kimberly Stout's credit card number is 38244202553186. What is the last product they purchased? [/INST]The user last purchased Old Performance</s>
+2024-04-24 10:54:04 - INFO - __main__ - Sample 3 of the processed training set:
+
+<s>[INST] Paul Morgan's credit card number is 501840494386. What is the last product they purchased? [/INST]The user last purchased Valuable Imagination</s>
+2024-04-24 10:54:05 - WARNING - __main__ - Process rank: 3, device: cuda:3, n_gpu: 1 distributed training: True, 16-bits training: False
+2024-04-24 10:54:05 - WARNING - __main__ - Process rank: 2, device: cuda:2, n_gpu: 1 distributed training: True, 16-bits training: False
+/opt/conda/envs/handbook/lib/python3.10/site-packages/datasets/table.py:1421: FutureWarning: promote has been superseded by promote_options='default'.
+  table = cls._concat_blocks(blocks, axis=0)
+2024-04-24 10:54:05 - WARNING - __main__ - Process rank: 1, device: cuda:1, n_gpu: 1 distributed training: True, 16-bits training: False
+/opt/conda/envs/handbook/lib/python3.10/site-packages/datasets/table.py:1421: FutureWarning: promote has been superseded by promote_options='default'.
+  table = cls._concat_blocks(blocks, axis=0)
+/opt/conda/envs/handbook/lib/python3.10/site-packages/datasets/table.py:1421: FutureWarning: promote has been superseded by promote_options='default'.
+  table = cls._concat_blocks(blocks, axis=0)
+2024-04-24 10:54:06 - INFO - __main__ - *** Load pretrained model ***
+/opt/conda/envs/handbook/lib/python3.10/site-packages/trl/trainer/sft_trainer.py:159: UserWarning: You passed a model_id to the SFTTrainer. This will automatically create an `AutoModelForCausalLM` or a `PeftModel` (if you passed a `peft_config`) for you.
+  warnings.warn(
+/opt/conda/envs/handbook/lib/python3.10/site-packages/trl/trainer/sft_trainer.py:159: UserWarning: You passed a model_id to the SFTTrainer. This will automatically create an `AutoModelForCausalLM` or a `PeftModel` (if you passed a `peft_config`) for you.
+  warnings.warn(
+/opt/conda/envs/handbook/lib/python3.10/site-packages/trl/trainer/sft_trainer.py:159: UserWarning: You passed a model_id to the SFTTrainer. This will automatically create an `AutoModelForCausalLM` or a `PeftModel` (if you passed a `peft_config`) for you.
+  warnings.warn(
+/opt/conda/envs/handbook/lib/python3.10/site-packages/trl/trainer/sft_trainer.py:159: UserWarning: You passed a model_id to the SFTTrainer. This will automatically create an `AutoModelForCausalLM` or a `PeftModel` (if you passed a `peft_config`) for you.
+  warnings.warn(
+[INFO|configuration_utils.py:726] 2024-04-24 10:54:06,096 >> loading configuration file /data/models/Mistral-7B-Instruct-v0.2/config.json
+[INFO|configuration_utils.py:791] 2024-04-24 10:54:06,097 >> Model config MistralConfig {
+  "_name_or_path": "/data/models/Mistral-7B-Instruct-v0.2/",
+  "architectures": [
+    "MistralForCausalLM"
+  ],
+  "attention_dropout": 0.0,
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 32768,
+  "model_type": "mistral",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "rms_norm_eps": 1e-05,
+  "rope_theta": 1000000.0,
+  "sliding_window": null,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.38.2",
+  "use_cache": false,
+  "vocab_size": 32000
+}
+
+[INFO|modeling_utils.py:3254] 2024-04-24 10:54:06,102 >> loading weights file /data/models/Mistral-7B-Instruct-v0.2/model.safetensors.index.json
+[INFO|modeling_utils.py:1400] 2024-04-24 10:54:06,102 >> Instantiating MistralForCausalLM model under default dtype torch.bfloat16.
+[INFO|configuration_utils.py:845] 2024-04-24 10:54:06,103 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "use_cache": false
+}
+
+Loading checkpoint shards: 100%|██████████████████████████████████████████████████████████████████████████████████| 3/3 [00:05<00:00,  1.98s/it]
+/opt/conda/envs/handbook/lib/python3.10/site-packages/trl/trainer/sft_trainer.py:290: UserWarning: You passed a tokenizer with `padding_side` not equal to `right` to the SFTTrainer. This might lead to some unexpected behaviour due to overflow issues when training a model in half-precision. You might consider adding `tokenizer.padding_side = 'right'` to your code.
+  warnings.warn(
+Loading checkpoint shards: 100%|██████████████████████████████████████████████████████████████████████████████████| 3/3 [00:06<00:00,  2.01s/it]
+[INFO|modeling_utils.py:3992] 2024-04-24 10:54:13,333 >> All model checkpoint weights were used when initializing MistralForCausalLM.
+
+[INFO|modeling_utils.py:4000] 2024-04-24 10:54:13,333 >> All the weights of MistralForCausalLM were initialized from the model checkpoint at /data/models/Mistral-7B-Instruct-v0.2/.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use MistralForCausalLM for predictions without further training.
+[INFO|configuration_utils.py:798] 2024-04-24 10:54:13,336 >> loading configuration file /data/models/Mistral-7B-Instruct-v0.2/generation_config.json
+[INFO|configuration_utils.py:845] 2024-04-24 10:54:13,337 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "eos_token_id": 2
+}
+
+Using custom data configuration default-e10758dea0e8882d
+2024-04-24 10:54:13 - INFO - datasets.builder - Using custom data configuration default-e10758dea0e8882d
+Loading Dataset Infos from /opt/conda/envs/handbook/lib/python3.10/site-packages/datasets/packaged_modules/generator
+2024-04-24 10:54:13 - INFO - datasets.info - Loading Dataset Infos from /opt/conda/envs/handbook/lib/python3.10/site-packages/datasets/packaged_modules/generator
+Overwrite dataset info from restored data version if exists.
+2024-04-24 10:54:13 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /root/.cache/huggingface/datasets/generator/default-e10758dea0e8882d/0.0.0
+2024-04-24 10:54:13 - INFO - datasets.info - Loading Dataset info from /root/.cache/huggingface/datasets/generator/default-e10758dea0e8882d/0.0.0
+Found cached dataset generator (/root/.cache/huggingface/datasets/generator/default-e10758dea0e8882d/0.0.0)
+2024-04-24 10:54:13 - INFO - datasets.builder - Found cached dataset generator (/root/.cache/huggingface/datasets/generator/default-e10758dea0e8882d/0.0.0)
+Loading Dataset info from /root/.cache/huggingface/datasets/generator/default-e10758dea0e8882d/0.0.0
+2024-04-24 10:54:13 - INFO - datasets.info - Loading Dataset info from /root/.cache/huggingface/datasets/generator/default-e10758dea0e8882d/0.0.0
+Using custom data configuration default-b0de55c1f587663b
+2024-04-24 10:54:13 - INFO - datasets.builder - Using custom data configuration default-b0de55c1f587663b
+Loading Dataset Infos from /opt/conda/envs/handbook/lib/python3.10/site-packages/datasets/packaged_modules/generator
+2024-04-24 10:54:13 - INFO - datasets.info - Loading Dataset Infos from /opt/conda/envs/handbook/lib/python3.10/site-packages/datasets/packaged_modules/generator
+Overwrite dataset info from restored data version if exists.
+2024-04-24 10:54:13 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /root/.cache/huggingface/datasets/generator/default-b0de55c1f587663b/0.0.0
+2024-04-24 10:54:13 - INFO - datasets.info - Loading Dataset info from /root/.cache/huggingface/datasets/generator/default-b0de55c1f587663b/0.0.0
+Found cached dataset generator (/root/.cache/huggingface/datasets/generator/default-b0de55c1f587663b/0.0.0)
+2024-04-24 10:54:13 - INFO - datasets.builder - Found cached dataset generator (/root/.cache/huggingface/datasets/generator/default-b0de55c1f587663b/0.0.0)
+Loading Dataset info from /root/.cache/huggingface/datasets/generator/default-b0de55c1f587663b/0.0.0
+2024-04-24 10:54:13 - INFO - datasets.info - Loading Dataset info from /root/.cache/huggingface/datasets/generator/default-b0de55c1f587663b/0.0.0
+/opt/conda/envs/handbook/lib/python3.10/site-packages/trl/trainer/sft_trainer.py:290: UserWarning: You passed a tokenizer with `padding_side` not equal to `right` to the SFTTrainer. This might lead to some unexpected behaviour due to overflow issues when training a model in half-precision. You might consider adding `tokenizer.padding_side = 'right'` to your code.
+  warnings.warn(
+2024-04-24 10:54:13 - WARNING - accelerate.utils.other - Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Loading checkpoint shards: 100%|██████████████████████████████████████████████████████████████████████████████████| 3/3 [00:06<00:00,  2.04s/it]
+/opt/conda/envs/handbook/lib/python3.10/site-packages/trl/trainer/sft_trainer.py:290: UserWarning: You passed a tokenizer with `padding_side` not equal to `right` to the SFTTrainer. This might lead to some unexpected behaviour due to overflow issues when training a model in half-precision. You might consider adding `tokenizer.padding_side = 'right'` to your code.
+  warnings.warn(
+Loading checkpoint shards: 100%|██████████████████████████████████████████████████████████████████████████████████| 3/3 [00:06<00:00,  2.06s/it]
+/opt/conda/envs/handbook/lib/python3.10/site-packages/trl/trainer/sft_trainer.py:290: UserWarning: You passed a tokenizer with `padding_side` not equal to `right` to the SFTTrainer. This might lead to some unexpected behaviour due to overflow issues when training a model in half-precision. You might consider adding `tokenizer.padding_side = 'right'` to your code.
+  warnings.warn(
+[INFO|trainer.py:601] 2024-04-24 10:54:16,477 >> Using auto half precision backend
+2024-04-24 10:54:16 - INFO - __main__ - *** Train ***
+[INFO|trainer.py:1812] 2024-04-24 10:54:16,718 >> ***** Running training *****
+[INFO|trainer.py:1813] 2024-04-24 10:54:16,718 >>   Num examples = 2
+[INFO|trainer.py:1814] 2024-04-24 10:54:16,718 >>   Num Epochs = 1
+[INFO|trainer.py:1815] 2024-04-24 10:54:16,718 >>   Instantaneous batch size per device = 1
+[INFO|trainer.py:1818] 2024-04-24 10:54:16,718 >>   Total train batch size (w. parallel, distributed & accumulation) = 4
+[INFO|trainer.py:1819] 2024-04-24 10:54:16,718 >>   Gradient Accumulation steps = 1
+[INFO|trainer.py:1820] 2024-04-24 10:54:16,718 >>   Total optimization steps = 1
+[INFO|trainer.py:1821] 2024-04-24 10:54:16,720 >>   Number of trainable parameters = 7,241,732,096
+[INFO|integration_utils.py:722] 2024-04-24 10:54:17,382 >> Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
+wandb: Currently logged in as: mihirmdkar. Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.3
+wandb: Run data is saved locally in /home/mdhamank/alignment-handbook/wandb/run-20240424_105418-2qs2yie0
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run worthy-yogurt-107
+wandb: ⭐️ View project at https://wandb.ai/mihirmdkar/huggingface
+wandb: 🚀 View run at https://wandb.ai/mihirmdkar/huggingface/runs/2qs2yie0
+  0%|                                                                                                                     | 0/1 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/home/mdhamank/alignment-handbook/scripts/run_sft.py", line 213, in <module>
+    main()
+  File "/home/mdhamank/alignment-handbook/scripts/run_sft.py", line 168, in main
+    train_result = trainer.train(resume_from_checkpoint=checkpoint)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/trl/trainer/sft_trainer.py", line 323, in train
+    output = super().train(*args, **kwargs)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/transformers/trainer.py", line 1615, in train
+    return inner_training_loop(
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/transformers/trainer.py", line 2017, in _inner_training_loop
+    self.optimizer.step()
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/accelerate/optimizer.py", line 145, in step
+    self.optimizer.step(closure)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 75, in wrapper
+    return wrapped(*args, **kwargs)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/optimizer.py", line 385, in wrapper
+    out = func(*args, **kwargs)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/optimizer.py", line 76, in _use_grad
+    ret = func(self, *args, **kwargs)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/adamw.py", line 187, in step
+    adamw(
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/adamw.py", line 339, in adamw
+    func(
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/adamw.py", line 608, in _multi_tensor_adamw
+    exp_avg_sq_sqrt = torch._foreach_sqrt(device_exp_avg_sqs)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 112.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 11.56 MiB is free. Process 1748850 has 79.31 GiB memory in use. Of the allocated memory 77.03 GiB is allocated by PyTorch, and 538.82 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/mdhamank/alignment-handbook/scripts/run_sft.py", line 213, in <module>
+    main()
+  File "/home/mdhamank/alignment-handbook/scripts/run_sft.py", line 168, in main
+    train_result = trainer.train(resume_from_checkpoint=checkpoint)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/trl/trainer/sft_trainer.py", line 323, in train
+    output = super().train(*args, **kwargs)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/transformers/trainer.py", line 1615, in train
+    return inner_training_loop(
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/transformers/trainer.py", line 2017, in _inner_training_loop
+    self.optimizer.step()
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/accelerate/optimizer.py", line 145, in step
+    self.optimizer.step(closure)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 75, in wrapper
+    return wrapped(*args, **kwargs)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/optimizer.py", line 385, in wrapper
+    out = func(*args, **kwargs)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/optimizer.py", line 76, in _use_grad
+    ret = func(self, *args, **kwargs)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/adamw.py", line 187, in step
+    adamw(
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/adamw.py", line 339, in adamw
+    func(
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/adamw.py", line 608, in _multi_tensor_adamw
+    exp_avg_sq_sqrt = torch._foreach_sqrt(device_exp_avg_sqs)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 112.00 MiB. GPU 2 has a total capacity of 79.32 GiB of which 11.56 MiB is free. Process 1748852 has 79.31 GiB memory in use. Of the allocated memory 77.03 GiB is allocated by PyTorch, and 530.82 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/mdhamank/alignment-handbook/scripts/run_sft.py", line 213, in <module>
+    main()
+  File "/home/mdhamank/alignment-handbook/scripts/run_sft.py", line 168, in main
+    train_result = trainer.train(resume_from_checkpoint=checkpoint)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/trl/trainer/sft_trainer.py", line 323, in train
+    output = super().train(*args, **kwargs)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/transformers/trainer.py", line 1615, in train
+    return inner_training_loop(
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/transformers/trainer.py", line 2017, in _inner_training_loop
+    self.optimizer.step()
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/accelerate/optimizer.py", line 145, in step
+    self.optimizer.step(closure)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 75, in wrapper
+    return wrapped(*args, **kwargs)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/optimizer.py", line 385, in wrapper
+    out = func(*args, **kwargs)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/optimizer.py", line 76, in _use_grad
+    ret = func(self, *args, **kwargs)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/adamw.py", line 187, in step
+    adamw(
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/adamw.py", line 339, in adamw
+    func(
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/adamw.py", line 608, in _multi_tensor_adamw
+    exp_avg_sq_sqrt = torch._foreach_sqrt(device_exp_avg_sqs)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 112.00 MiB. GPU 1 has a total capacity of 79.32 GiB of which 13.56 MiB is free. Process 1748851 has 79.31 GiB memory in use. Of the allocated memory 77.03 GiB is allocated by PyTorch, and 528.82 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/mdhamank/alignment-handbook/scripts/run_sft.py", line 213, in <module>
+    main()
+  File "/home/mdhamank/alignment-handbook/scripts/run_sft.py", line 168, in main
+    train_result = trainer.train(resume_from_checkpoint=checkpoint)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/trl/trainer/sft_trainer.py", line 323, in train
+    output = super().train(*args, **kwargs)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/transformers/trainer.py", line 1615, in train
+    return inner_training_loop(
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/transformers/trainer.py", line 2017, in _inner_training_loop
+    self.optimizer.step()
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/accelerate/optimizer.py", line 145, in step
+    self.optimizer.step(closure)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 75, in wrapper
+    return wrapped(*args, **kwargs)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/optimizer.py", line 385, in wrapper
+    out = func(*args, **kwargs)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/optimizer.py", line 76, in _use_grad
+    ret = func(self, *args, **kwargs)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/adamw.py", line 187, in step
+    adamw(
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/adamw.py", line 339, in adamw
+    func(
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/optim/adamw.py", line 608, in _multi_tensor_adamw
+    exp_avg_sq_sqrt = torch._foreach_sqrt(device_exp_avg_sqs)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 112.00 MiB. GPU 3 has a total capacity of 79.32 GiB of which 87.56 MiB is free. Process 1748853 has 79.24 GiB memory in use. Of the allocated memory 77.03 GiB is allocated by PyTorch, and 494.82 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[2024-04-24 10:54:29,808] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 34067 closing signal SIGTERM
+[2024-04-24 10:54:29,808] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 34068 closing signal SIGTERM
+[2024-04-24 10:54:29,809] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 34070 closing signal SIGTERM
+wandb: 🚀 View run worthy-yogurt-107 at: https://wandb.ai/mihirmdkar/huggingface/runs/2qs2yie0
+wandb: ️⚡ View job at https://wandb.ai/mihirmdkar/huggingface/jobs/QXJ0aWZhY3RDb2xsZWN0aW9uOjE0NDkyMzM3OA==/version_details/v18
+wandb: Synced 6 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240424_105418-2qs2yie0/logs
+[2024-04-24 10:54:31,027] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 2 (pid: 34069) of binary: /opt/conda/envs/handbook/bin/python
+Traceback (most recent call last):
+  File "/opt/conda/envs/handbook/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/accelerate/commands/accelerate_cli.py", line 47, in main
+    args.func(args)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/accelerate/commands/launch.py", line 1014, in launch_command
+    multi_gpu_launcher(args)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/accelerate/commands/launch.py", line 672, in multi_gpu_launcher
+    distrib_run.run(args)
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/distributed/run.py", line 803, in run
+    elastic_launch(
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 135, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/opt/conda/envs/handbook/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 268, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+scripts/run_sft.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2024-04-24_10:54:29
+  host      : 617d5eca416c
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 34069)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
