@@ -1,4 +1,11 @@
 # Extraction of Training Data from Fine-Tuned Large Language Models
+Research thesis by Mihir Dhamankar for completing 5th Year Masters in Computer Science at Carnegie Mellon University
+
+Read my [paper](mdhamank_5th_Year_Masters_Thesis.pdf)
+
+See my [presentation](Final%20Thesis%20Presentation.pptx)
+
+This repository contains all the code I used to run experiments. I used HuggingFace Alignment Handbook as a standardized way to run these experiments. Please follow the setup instructions [here](huggingface_README.md).
 
 ## Explanation of relevant files and folders
 * `train_data.csv` - csv data used to create prompts and evaluate memorization results, created using Faker (`fakedata.py`)
