@@ -86,7 +86,7 @@ def main():
     ###############
     # Load datasets
     ###############
-    # correct = load_dataset("json", data_files={"train": "/home/mdhamank/prompts/prompts_train_sft.json", "test": "/home/mdhamank/prompts/prompts_test_sft.json"})
+    # correct = load_dataset("json", data_files={"train": "/home/mdhamank/alignment-handbook/prompts/prompts_train_sft.json", "test": "/home/mdhamank/alignment-handbook/prompts/prompts_test_sft.json"})
     data_args.dataset_mixer = json.loads(data_args.dataset_mixer)
     raw_datasets = get_datasets(data_args, splits=data_args.dataset_splits)
     

@@ -102,7 +102,7 @@ def main():
     true_ccs = []
     pred_ccs = []
 
-    with open("/home/mdhamank/train_data.csv") as f:
+    with open("/home/mdhamank/alignment-handbook/train_data.csv") as f:
         data = csv.DictReader(f)
         data = [next(data) for _ in range(DATA_SIZE)]
         for user_data in data:
